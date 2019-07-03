@@ -2,19 +2,21 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
+const isAuth = require('./middleware/is-auth');
 
 const graphQLSchema = require('./graphql/schema/index');
 const graphQLResolvers = require('./graphql/resolvers/index');
 const app = express();
 // not needed since storing into mongoose
 //const events = [];
-
-app.use(bodyParser.json());
-
-
 app.get('/', (req, res, next) => {
   res.send('Hello World!!');
 })
+
+app.use(bodyParser.json());
+
+app.use(isAuth);
+
 // changes need to be made here for any proprietary updates
 app.use('/graphql', graphqlHttp({
   schema: graphQLSchema,
