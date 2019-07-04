@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 
+
 module.exports = {
   // resolver
   // used to store into the database
