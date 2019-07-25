@@ -23,8 +23,7 @@ module.exports = {
       });
       const result = await user.save();
 
-      return {
-        ...result._doc,
+      return { ...result._doc,
         password: null,
         _id: result.id
       };
