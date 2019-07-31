@@ -32,11 +32,8 @@ app.use('/graphql', graphqlHttp({
 
 })); //app.use
 // connect to mongoose db 11.01
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${
-  process.env.MONGO_PASSWORD
-}@prft-cluster-a4xjn.gcp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`, {
-    useNewUrlParser: true
-  }).then(() => {
+mongoose.connect('mongodb://127.0.0.1:27017/events-react-dev', { useNewUrlParser: true })
+.then(() => {
     app.listen(8000, () => console.log('Listening backend on port 8000.....'));
   })
   .catch(err => {

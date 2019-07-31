@@ -86,7 +86,8 @@ app.use('/graphql', graphqlHttp({
 // connect to mongoose db 11.01
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${
   process.env.MONGO_PASSWORD
-}@prft-cluster-a4xjn.gcp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`,{ useNewUrlParser: true }
+}@prft-cluster-a4xjn.gcp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`, {
+    useNewUrlParser: true }
 ).then(() => {
   app.listen(3000, () => console.log('Listening on port 3000.....'));
 })
